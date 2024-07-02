@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage[left=2.54cm, right=2.54cm, bottom=2.54cm, top=2.54cm]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\title{Bicycle movement}
+\author{Juan Sebasti\'{a}n Mart\'{i}nez Ar\'{e}valo}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This document contains information about the project to model the movement of a bicycle. It briefly explains the theory of movement and the computational model used to obtain numerical results.
+\end{abstract}
+
+\section{First approach.}
+
+The first model to consider is one in which the bicycle is frictionless. The equation that describe the movement of a body in classical mechanics is Newton's second law, which in one dimension is describes by:
+
+\begin{equation}
+  F = m\frac{dv}{dt}
+\end{equation}
+
+clearing $\frac{dv}{dt}$
+
+\begin{equation}
+  \frac{dv}{dt} = F/m
+  \label{NSL}
+\end{equation}
+
+with this, we can determine the velocity of the bicycle at any time. However,  the force $F$ isn't easy to determine, so it's more convenient to perform the analysis in terms of other parameter like the power $P$, which represents the energy given to the physical system per unit of time. To do this, consider the mathematic definition of power, which is
+
+\begin{equation}
+  P = \frac{dE}{dt}
+\end{equation}
+
+since the energy in the system is purely kinetic, it takes the form $E=\frac{1}{2}mv^{2}$. Therefore the derivative is $dE/dt = mv(dv/dt)$. Clearing it
+
+\begin{equation}
+  \frac{dv}{dt} = \frac{P}{mv}
+\end{equation}
+
+integring, take the velocity at initial time $t_0$ as $v_0$ gives like result
+
+\begin{equation}
+  v(t) = \sqrt{v_0^2 + \frac{P}{m}t}
+\end{equation}
+
+However, this result is unphysical in the sense that the velocity increases indefinitely. Therefore, we consider the derivative of velocity as a finite difference
+
+
+$$ \frac{v_{i+1} - v_i}{\Delta t} = \frac{P}{mv_{i}} \rightarrow v_{i+1} = v_i + \frac{P}{mv_{i}}\Delta t$$
+
+Therefore, given an initial velocity, it is possible to obtain the velocity for any future time.
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=0.7\linewidth]{velocity_v1.pdf}
+\end{figure}
+
+\end{document}
