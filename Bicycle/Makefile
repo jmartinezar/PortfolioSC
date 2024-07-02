@@ -1,14 +1,20 @@
-doc: Bicycle.tex velocity_v1.pdf
+doc: Bicycle.tex velocity_v1.pdf velocity_v2.pdf
 	pdflatex $<
 
 velocity_v1.pdf: plot_data_1.gp data_1.txt
+	gnuplot $<
+
+velocity_v2.pdf: plot_data_2.gp data_2.txt
 	gnuplot $<
 
 %.o: %.cpp
 	g++ -c $<
 
 data_1.txt: main
-	./main > $@
+	./main
+
+data_2.txt: main
+	./main
 
 main: Bicycle.o include.o
 	g++ $^ -o $@
