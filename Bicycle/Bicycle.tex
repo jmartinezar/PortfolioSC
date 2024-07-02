@@ -55,14 +55,26 @@ Therefore, given an initial velocity, it is possible to obtain the velocity for 
 
 \begin{figure}[!h]
   \centering
-  \includegraphics[width=0.7\linewidth]{velocity_v1.pdf}
-  \caption{}
+  \includegraphics[width=0.6\linewidth]{velocity_v1.pdf}
+  \caption{Velocity versus time in a model without friction. All parameters had taken as 1.0, with this respective units.}
   \label{f1}
 \end{figure}
 
+\section{With friction}
+
+The problem with the model is that the velocity increases indefinitely. Obviously, in real life, the system does not behave like this. The reason for this is the lack of consideration of friction in the system which is very important for the final result. In the case of a bicycle, the friction with the ground and between the parts of system themselves doesn't have a significant impact on the final result, so we will ignore it and consider only the friction with air. To include friction in the equation, it is necessary to analyze the energy required for the cyclist to displace the mass of air. Doing this, as can found in the literature, results in adding a term to the velocity in the consideration of a finite difference. So
+
+\begin{equation}
+  v_{i+1} = v_i + \frac{P}{mv_{i}}\Delta t - \frac{C\rho A v_i^2}{2m}\Delta t
+\end{equation}
+
+with $C$ being a parameter that depends on the shape of the system, $\rho$ is the air density, and $A$ the frontal area of the system. With this consideration, the result is that the system now has a terminal velocity, as is shown in Figure \ref{F2}.
+
 \begin{figure}[!h]
   \centering
-  \includegraphics[width=0.7\linewidth]{velocity_v2.pdf}
+  \includegraphics[width=0.6\linewidth]{velocity_v2.pdf}
+  \caption{Velocity versus time in a model with friction. All parameters had taken as 1.0, with this respective units.}
+  \label{F2}
 \end{figure}
 
 \end{document}
