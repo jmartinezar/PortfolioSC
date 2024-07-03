@@ -13,11 +13,10 @@ const int Nsteps = 1000; //dimensionless
 const double dt = (tfinal - tinit)/Nsteps; //[s]
 const double C = 1.0; //dimensionless
 const double rho = 1.0; //[kg/m^3]
-const double P = 1.0; //[W]
-const double A = 1.0; //[m^2]
+const double A = 1.0;
 
 /* Functions of problem */
 
-double velocity(double vi);
-double velocity_wf(double vi);
-void generate_data(std::ofstream & data, double ti, double v0, int N, double dt, std::function<double(double)> func);
+double velocity(double vi, double P);
+double velocity_wf(double vi, double P);
+void generate_data(std::ofstream & data, double ti, double v0, int N, double dt, std::function<double(double, double)> func, double P);
