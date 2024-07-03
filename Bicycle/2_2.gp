@@ -1,6 +1,6 @@
 set term pdf
 set output "2_2.pdf"
-set title 'Velocity vs time without friction'
+set title 'Velocity vs time with distinc P values'
 set xlabel 'Time[s]'
 set ylabel 'Velocity[m/s]'
 set key right bottom
