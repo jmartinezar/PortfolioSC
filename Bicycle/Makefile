@@ -34,6 +34,11 @@ velocity_v2.pdf: $(files_plot_2)
 main: $(objects)
 	g++ -g $^ -o $@
 
+2_2.pdf:
+	cd 2_2;\
+	make;\
+	cd ..
+
 # Generalities
 
 clean:
