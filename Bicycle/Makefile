@@ -12,6 +12,8 @@ files_plot_1 = plot_data_1.gp data_1.txt
 
 files_plot_2 = plot_data_2.gp data_2.txt
 
+files_to_delete = *~ *.pdf *.log *.txt *.aux *.o main 2_2
+
 # Recipes
 
 doc: $(tex_deps)
@@ -26,10 +28,7 @@ velocity_v2.pdf: $(files_plot_2)
 %.o: %.cpp include.h
 	g++ -c -g $<
 
-data_1.txt: main
-	./main
-
-data_2.txt: main
+%.txt: main
 	./main
 
 main: $(objects)
@@ -38,4 +37,4 @@ main: $(objects)
 # Generalities
 
 clean:
-	rm *~ *.pdf *.log *.txt *.aux *.o main 2_2
+	rm $(files_to_delete)
