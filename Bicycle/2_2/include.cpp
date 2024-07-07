@@ -1,10 +1,5 @@
 #include "include.h"
 
-double velocity(double vi, double P)
-{
-  return vi + (P*dt)/(mass*vi);
-}
-
 double velocity_wf(double vi, double P)
 {
   return vi + (P*dt)/(mass*vi) - (dt*C*rho*A*vi*vi)/(2*mass);
