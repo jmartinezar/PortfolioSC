@@ -40,7 +40,7 @@ velocity_v2.pdf: $(files_plot_2)
 # Object files #################################
 
 %.o: %.cpp include.h
-	g++ -c -g $<
+	g++ -g -Wall -O3 -c $<
 
 # Data files ###################################
 
@@ -50,7 +50,7 @@ velocity_v2.pdf: $(files_plot_2)
 # Compilation of main program ##################
 
 main: $(objects)
-	g++ -g $^ -o $@
+	g++ -g -Wall -O3 $^ -o $@
 
 ################################################
 # Exercises
