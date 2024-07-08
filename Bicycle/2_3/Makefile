@@ -1,8 +1,12 @@
 # Execise 2_3
 
+# Variables
+
+data = 2_3_wf_water.txt 2_3_wd_water.txt 2_3_wf_air.txt 2_3_wd_air.txt
+
 # Execute
 
-2_3.pdf: 2_3.gp 2_3_wf.txt 2_3_wd.txt
+2_3.pdf: 2_3.gp $(data)
 	gnuplot $<
 
 %.txt: 2_3
