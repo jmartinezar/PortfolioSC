@@ -1,30 +1,30 @@
-#include "include.h"
 #include <iostream>
-#include <string>
 #include <fstream>
 #include <cctype>
 
-double velocity_wf(double vi, double rho, double eta)
-{
-  return vi + (P*dt)/(mass*vi) - (dt*C*rho*A*vi*vi)/(2*mass);
-}
+void read_variables(double & rho, double & eta, std::ifstream & input);
 
-double velocity_wd(double vi, double rho, double eta)
+int main(void)
 {
-  return vi + (P*dt)/(mass*vi) - (dt*C*rho*A*vi*vi)/(2*mass) - eta*A*vi/h;
-}
+  double rho = 0.0, eta = 0.0;
 
-void generate_data(std::ofstream & data, double ti, double v0, int N, double dt, std::function<double(double, double, double)> func, double rho, double eta)
-{
-  data << ti << "\t" << v0 << "\n";
-  
-  double vi = func(v0, rho, eta);
-  
-  for(int ii = 1; ii < N; ++ii)
-    {
-      data << ii*dt << "\t" << vi << "\n";
-      vi = func(vi, rho, eta);
-    }
+  std::ifstream input("test1.dat");
+
+  read_variables(rho, eta, input);
+
+  input.close();
+
+  std::cout << "rho: " << rho << "; eta: " << eta << "\n";
+
+  std::ifstream input2("test2.dat");
+
+  read_variables(rho, eta, input2);
+
+  input2.close();
+
+  std::cout << "rho: " << rho << "; eta: " << eta << "\n";
+
+  return 0;
 }
 
 void read_variables(double & rho, double & eta, std::ifstream & input)

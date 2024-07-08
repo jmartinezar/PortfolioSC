@@ -15,8 +15,6 @@ int main(void)
 
   input_air.close();
 
-  std::cout << "rho: " << rho << "; eta: " << eta << "\n";
-
   /* With two terms of viscosity */
   
   std::ofstream data_1_air;
@@ -42,8 +40,6 @@ int main(void)
   read_variables(rho, eta, input_water);
 
   input_water.close();
-
-  std::cout << "rho: " << rho << "; eta: " << eta << "\n";
 
   /* With two terms of viscosity */
   
