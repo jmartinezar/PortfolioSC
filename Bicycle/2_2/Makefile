@@ -9,10 +9,10 @@ data = data_22_0.txt data_22_1.txt data_22_2.txt data_22_3.txt data_22_4.txt dat
 2_2.pdf: 2_2.gp $(data)
 	gnuplot $<
 
-%.o: %.cpp
+%.o: %.cpp include.h
 	g++ -g -Wall -O3 -c $<
 
-2_2: 2_2.o include_22.o
+2_2: 2_2.o include.o
 	g++ -g -Wall -O3 $^ -o $@
 
 data_22_%.txt: 2_2 2_2.sh

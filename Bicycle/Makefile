@@ -80,4 +80,6 @@ main: $(objects)
 ################################################
 
 clean:
-	rm $(files_to_delete)
+	rm $(files_to_delete);\
+	make -C 2_2 clean;\
+	make -C 2_3 clean

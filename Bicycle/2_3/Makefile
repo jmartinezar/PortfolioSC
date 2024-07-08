@@ -2,10 +2,10 @@
 
 # Execute
 
-2_3.pdf: 2_3.gp 2_3.txt
+2_3.pdf: 2_3.gp 2_3_wf.txt 2_3_wd.txt
 	gnuplot $<
 
-2_3.txt: 2_3
+%.txt: 2_3
 	./$<
 
 2_3: 2_3.o include.o

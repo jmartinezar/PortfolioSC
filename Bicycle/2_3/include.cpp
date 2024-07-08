@@ -1,8 +1,13 @@
 #include "include.h"
 
+double velocity_wf(double vi)
+{
+  return vi + (P*dt)/(mass*vi) - (dt*C*rho*A*vi*vi)/(2*mass);
+}
+
 double velocity_wd(double vi)
 {
-  return vi + (P*dt)/(mass*vi) - (dt*C*rho*A*vi*vi)/(2*mass) + eta*A*vi/h;
+  return vi + (P*dt)/(mass*vi) - (dt*C*rho*A*vi*vi)/(2*mass) - eta*A*vi/h;
 }
 
 void generate_data(std::ofstream & data, double ti, double v0, int N, double dt, std::function<double(double)> func)
