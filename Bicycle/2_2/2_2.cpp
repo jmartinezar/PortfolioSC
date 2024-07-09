@@ -21,6 +21,8 @@ int main(int charc, char * argv[])
   generate_data(data, tinit, v_0, Nsteps, dt, velocity_wf, P);
   
   data.close();
+
+  std::cout << P << "\n";
   
   return 0;
 }
